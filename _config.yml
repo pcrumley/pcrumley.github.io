@@ -59,10 +59,10 @@ author:
   avatar : "/assets/images/bio-photo.jpg"
   bio    : "Programmer. Number cruncher. Computational Astrophysicist."
   links:
-    - label: "Website"
+    - label: "pcrumley.github.io"
       icon: "fas fa-fw fa-link"
       url: "https://pcrumley.github.io/"
-    - label: "GitHub"
+    - label: "pcrumley"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/pcrumley"
 
