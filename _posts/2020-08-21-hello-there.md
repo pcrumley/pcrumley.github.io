@@ -28,8 +28,8 @@ whole class of objects no one had seen before.
 
 Galaxy Zoo is a wonderful project that has lots volunteers who donate their time to
 categorize hundreds of thousands of galaxies based on their shape. It always
-gives me a fuzzy feeling to think about---it combines the best parts of big data,
-technology, and using the internet to build community and collaboration between
+gives me a fuzzy feeling to think about---the project combines the best parts of big 
+data and technology; using the internet to build community and collaboration between
 experts and non-experts.
 
 I hope to fill up this space with little things.
