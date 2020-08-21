@@ -22,7 +22,7 @@ Voorwerp](https://en.wikipedia.org/wiki/Hanny%27s_Voorwerp). Voorwerpjes are
 echoes of supermassive black holes, an anomalous astronomical object discovered by
 a citizen scientist in the Netherlands, Hanny van Arkel. She was volunteering as
 part of the [Galaxy
-Zoo](https://www.zooniverse.org/projects/zookeeper/galaxy-zoo/) project, when
+Zoo](https://www.zooniverse.org/projects/zookeeper/galaxy-zoo/) project when
 she saw something new. It turned out to be a
 whole class of objects no one had seen before.
 
