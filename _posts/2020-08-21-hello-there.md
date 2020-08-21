@@ -9,11 +9,11 @@ tags:
 
 
 
-Hi. I'm Patrick. Right now I work as a [computational astrophysicist](https://web.astro.princeton.edu/people/patrick-crumley), but I am
-also in the middle of a career transition. I am starting a blog both as a way to
-find ways to connect in this new normal, write down my thoughts, and document
-things about my work in and outside of academia that I'm proud of or think might
-help others.
+Hi. I'm Patrick. Right now I work as a [computational
+astrophysicist](https://web.astro.princeton.edu/people/patrick-crumley), but I
+am also in the middle of a career transition. I am starting a blog to find ways
+to connect in this new normal, write down my thoughts, and document things about
+my work in and outside of academia that I'm proud of or think might help others.
 
 I'm choosing to call my blog *Voorwerpjes*, which is a Dutch word that
 translates into 'little things'. But it is also the name of the class of the
