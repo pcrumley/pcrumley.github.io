@@ -17,8 +17,7 @@ title: Voorwerpjes
 email: patrick.crumley@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Personal website of Patrick Crumley
-twitter_username: pkcrumley
-github_username: pkcrumley
+github_username: pcrumley
 minimal_mistakes_skin: dirt
 search: true
 
@@ -63,27 +62,15 @@ author:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://pcrumley.github.io/"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://github.com/pcrumley"
 
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
-    - label: "GitHub"
+    - label: "pcrumley"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://github.com/pcrumley"
 
 defaults:
   # _posts
