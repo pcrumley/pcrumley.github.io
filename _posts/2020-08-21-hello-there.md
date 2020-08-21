@@ -19,15 +19,14 @@ I'm choosing to call my blog *Voorwerpjes*, which is a Dutch word that
 translates into 'little things'. But it is also the name of the class of the
 astronomical object pictured below, [Hanny's
 Voorwerp](https://en.wikipedia.org/wiki/Hanny%27s_Voorwerp). Voorwerpjes are
-ionization echos of quasars, an anomalous astronomical object discovered by
-citizen scientist in the Netherlands, Hanny van Arkel. She was volunteering as
+echoes of supermassive black holes, an anomalous astronomical object discovered by
+a citizen scientist in the Netherlands, Hanny van Arkel. She was volunteering as
 part of the [Galaxy
 Zoo](https://www.zooniverse.org/projects/zookeeper/galaxy-zoo/) project, when
-she saw something new. She wanted to know what it was and it turned out to be a
+she saw something new. It turned out to be a
 whole class of objects no one had seen before.
 
-
-Galaxy Zoo is a wonderful project that has lots volunteers who donate their to
+Galaxy Zoo is a wonderful project that has lots volunteers who donate their time to
 categorize hundreds of thousands of galaxies based on their shape. It always
 gives me a fuzzy feeling to think about---it combines the best parts of big data,
 technology, and using the internet to build community and collaboration between
