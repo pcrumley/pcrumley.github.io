@@ -1,5 +1,5 @@
 ---
-title: "Hello, there"
+title: println!("Hello, there!");
 categories:
   - Blog
 tags:
