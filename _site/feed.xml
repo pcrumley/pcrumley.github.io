@@ -1,27 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-21T16:15:47-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Voorwerpjes</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Patrick Crumley</name></author><entry><title type="html">Hello, there</title><link href="http://localhost:4000/blog/hello-there/" rel="alternate" type="text/html" title="Hello, there" /><published>2020-08-21T00:00:00-04:00</published><updated>2020-08-21T00:00:00-04:00</updated><id>http://localhost:4000/blog/hello-there</id><content type="html" xml:base="http://localhost:4000/blog/hello-there/">&lt;p&gt;Hi. I’m Patrick. Right now I work as a &lt;a href=&quot;https://web.astro.princeton.edu/people/patrick-crumley&quot;&gt;computational astrophysicist&lt;/a&gt;, but I am
-also in the middle of a career transition. I am starting a blog both as a way to
-find ways to connect in this new normal, write down my thoughts, and document
-things about my work in and outside of academia that I’m proud of or think might
-help others.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-21T21:43:58-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Voorwerpjes</title><subtitle>Personal website of Patrick Crumley</subtitle><author><name>Patrick Crumley</name></author><entry><title type="html">Hello There.</title><link href="http://localhost:4000/blog/hello-there/" rel="alternate" type="text/html" title="Hello There." /><published>2020-08-21T00:00:00-04:00</published><updated>2020-08-21T00:00:00-04:00</updated><id>http://localhost:4000/blog/hello-there</id><content type="html" xml:base="http://localhost:4000/blog/hello-there/">&lt;p&gt;Hi. I’m Patrick. Right now I work as a &lt;a href=&quot;https://web.astro.princeton.edu/people/patrick-crumley&quot;&gt;computational
+astrophysicist&lt;/a&gt;, but I
+am also in the middle of a career transition. I am starting a blog to find ways
+to connect in this new normal, write down my thoughts, and document things about
+my work in and outside of academia that I’m proud of or think might help others.&lt;/p&gt;
 
 &lt;p&gt;I’m choosing to call my blog &lt;em&gt;Voorwerpjes&lt;/em&gt;, which is a Dutch word that
 translates into ‘little things’. But it is also the name of the class of the
 astronomical object pictured below, &lt;a href=&quot;https://en.wikipedia.org/wiki/Hanny%27s_Voorwerp&quot;&gt;Hanny’s
 Voorwerp&lt;/a&gt;. Voorwerpjes are
-ionization echos of quasars, an anomalous astronomical object discovered by
-citizen scientist in the Netherlands, Hanny van Arkel. She was volunteering as
+echoes of supermassive black holes, an anomalous astronomical object discovered by
+a citizen scientist in the Netherlands, Hanny van Arkel. She was volunteering as
 part of the &lt;a href=&quot;https://www.zooniverse.org/projects/zookeeper/galaxy-zoo/&quot;&gt;Galaxy
-Zoo&lt;/a&gt; project, when
-she saw something new. She wanted to know what it was and it turned out to be a
+Zoo&lt;/a&gt; project when
+she saw something new. It turned out to be a
 whole class of objects no one had seen before.&lt;/p&gt;
 
-&lt;p&gt;Galaxy Zoo is a wonderful project that has lots volunteers who donate their to
+&lt;p&gt;Galaxy Zoo is a wonderful project that has lots volunteers who donate their time to
 categorize hundreds of thousands of galaxies based on their shape. It always
-gives me a fuzzy feeling to think about—it combines the best parts of big data,
-technology, and using the internet to build community and collaboration between
+gives me a fuzzy feeling to think about—the project combines the best parts of big
+data and technology; using the internet to build community and collaboration between
 experts and non-experts.&lt;/p&gt;
 
 &lt;p&gt;I hope to fill up this space with little things.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/hannys_voorwerp.jpg&quot; alt=&quot;Hanny's Voorwerp, credit to NASA&quot; /&gt;
-Credit: NASA and the Galaxy Zoo Team&lt;/p&gt;</content><author><name>Patrick Crumley</name></author><category term="Personal" /><category term="Voorwerpjes" /><summary type="html">Hi. I’m Patrick. Right now I work as a computational astrophysicist, but I am also in the middle of a career transition. I am starting a blog both as a way to find ways to connect in this new normal, write down my thoughts, and document things about my work in and outside of academia that I’m proud of or think might help others.</summary></entry></feed>
+Credit: NASA and the Galaxy Zoo Team&lt;/p&gt;</content><author><name>Patrick Crumley</name></author><category term="Personal" /><category term="Voorwerpjes" /><summary type="html">Hi. I’m Patrick. Right now I work as a computational astrophysicist, but I am also in the middle of a career transition. I am starting a blog to find ways to connect in this new normal, write down my thoughts, and document things about my work in and outside of academia that I’m proud of or think might help others.</summary></entry><entry><title type="html">Handy Resources for learning &amp;amp; doing ML</title><link href="http://localhost:4000/blog/stats-ml-resources/" rel="alternate" type="text/html" title="Handy Resources for learning &amp; doing ML" /><published>2020-08-21T00:00:00-04:00</published><updated>2020-08-21T00:00:00-04:00</updated><id>http://localhost:4000/blog/stats-ml-resources</id><content type="html" xml:base="http://localhost:4000/blog/stats-ml-resources/">&lt;p&gt;I attended the 2020 Spring session of Insight Data Science NYC, a 7 week long,
+postdoctoral professional development fellowship from January through March.
+I had a lot of fun doing it, but it was also surreal to watch the world shift
+under our feet in early March during the outbreak of COVID-19.&lt;/p&gt;
+
+&lt;p&gt;There is this theory in cosmology that the quantum field that permeates our
+universe is only metastable. There exists a lower energy stable point than the
+one we currently occupy. At some point, a place in the universe might
+spontaneously tunnel from the “false vacuum” state into the “true vacuum.” The
+part of the universe in the true vacuum state would then expand at the speed of
+light, destroying everything it touched. It’s one of the ways our &lt;a href=&quot;https://cosmosmagazine.com/physics/vacuum-decay-ultimate-catastrophe/&quot;&gt;universe may
+end&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In March, it was&lt;/p&gt;</content><author><name>Patrick Crumley</name></author><category term="Insight Data Science" /><category term="NYC" /><summary type="html">I attended the 2020 Spring session of Insight Data Science NYC, a 7 week long, postdoctoral professional development fellowship from January through March. I had a lot of fun doing it, but it was also surreal to watch the world shift under our feet in early March during the outbreak of COVID-19.</summary></entry></feed>

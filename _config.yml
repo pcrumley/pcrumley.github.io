@@ -62,12 +62,18 @@ author:
     - label: "pcrumley.github.io"
       icon: "fas fa-fw fa-link"
       url: "https://pcrumley.github.io/"
+    - label: "pkcrumley"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/pkcrumley"
     - label: "pcrumley"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/pcrumley"
 
 footer:
   links:
+    - label: "pkcrumley"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/pkcrumley"
     - label: "pcrumley"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/pcrumley"
