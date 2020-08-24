@@ -8,7 +8,6 @@ tags:
 ---
 
 
-
 Hi. I'm Patrick. Right now I work as a [computational
 astrophysicist](https://web.astro.princeton.edu/people/patrick-crumley), but I
 am also in the middle of a career transition. I am starting a blog to find ways
@@ -28,7 +27,7 @@ whole class of objects no one had seen before.
 
 Galaxy Zoo is a wonderful project that has lots volunteers who donate their time to
 categorize hundreds of thousands of galaxies based on their shape. It always
-gives me a fuzzy feeling to think about---the project combines the best parts of big 
+gives me a fuzzy feeling to think about---the project combines the best parts of big
 data and technology; using the internet to build community and collaboration between
 experts and non-experts.
 

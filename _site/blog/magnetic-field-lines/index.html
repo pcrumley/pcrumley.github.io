@@ -1,0 +1,597 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Plotting Magnetic Field Lines in 2D? Here’s what you need to know. - Voorwerpjes</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Patrick Crumley">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Voorwerpjes">
+<meta property="og:title" content="Plotting Magnetic Field Lines in 2D? Here’s what you need to know.">
+<meta property="og:url" content="http://localhost:4000/blog/magnetic-field-lines/">
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-08-23T00:00:00-04:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/blog/magnetic-field-lines/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Voorwerpjes Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Voorwerpjes
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/bio-photo.jpg" alt="Patrick Crumley" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Patrick Crumley</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Programmer. Number cruncher. Computational Astrophysicist.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="https://pcrumley.github.io/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">pcrumley.github.io</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/pkcrumley" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">pkcrumley</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/pcrumley" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">pcrumley</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Plotting Magnetic Field Lines in 2D? Here’s what you need to know.">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2020-08-23T00:00:00-04:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Plotting Magnetic Field Lines in 2D? Here’s what you need to know.
+</h1>
+          
+
+
+  <p class="page__meta">
+
+    
+
+    
+
+    
+      
+      
+
+      <i class="far fa-clock" aria-hidden="true"></i>
+      
+        2 minute read
+      
+    
+
+  </p>
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous" />
+
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<p>One of the major difficulties of understanding plasmas is just getting a handle
+what the magnetic field is doing. If you’re lucky enough to be running
+simulations in 2D, you’ll have the value of the magnetic field at every point on
+your grid, but it still can be hard to understand the geometry of it all.
+That’s where <a href="https://en.wikipedia.org/wiki/Magnetic_field">field lines</a> come
+in.</p>
+
+<p>There’s this trick that is passed around by word of mouth amongst theoretical
+plasma physicists, but I can’t find it online or in print anywhere. Hopefully
+the solid use of SEO in my blog title will help it become more widely known
+(Don’t @ me, <a href="https://www.nytimes.com/column/the-daily">Michael Barbaro</a>).
+The trick makes calculating field lines in 2D very fast, but as you’ll
+see, it only works for magnetic or other divergence-free 2D vector fields.</p>
+
+<p>In 2D, the field lines in the \(xy\) plane can be calculated as lines of
+equipotential of \(A_z\). The trick is: <strong>you can calculate \(A_z\) at any
+point in the grid by integrating \(-B_y\) along \(x\), and \(B_x\) along
+\(y\).</strong></p>
+
+<p>If you want to just <a href="https://en.wikipedia.org/wiki/Argument_from_authority">believe me</a>
+and skip the vector calculus, scroll to the  bottom for a simple python snippet
+showing how to do use this trick efficiently. Otherwise, let’s take a little
+detour to prove we’ve made a valid construction of \(A_z\).</p>
+
+<h3 id="simple-calculation-of-the-of-the-magnetic-vector-potential-a_z">Simple calculation of the of the magnetic vector potential, \(A_z\).</h3>
+
+<p>Recall Maxwell’s EQ’s.
+\[ \mathbf{E} = \nabla V - \frac{\partial \mathbf{A}}{\partial t} \]
+\[ \mathbf{B} = \nabla \times \mathbf{A} \]</p>
+
+<p>We are free to choose any \(A\) that satisfies the above equation, due to gauge
+freedom. Calculate curl of \(A\)
+\[ \nabla \times \mathbf{A} =
+  \hat{i}\left[\frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}\right]
+  -\hat{j}\left[\frac{\partial A_z}{\partial x} - \frac{\partial A_x}{\partial z}\right]
+  +\hat{k}\left[\frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y}\right]
+\]
+Now because the simulation is \(2D\), we know that
+\( \frac{\partial}{\partial z} \) is zero for all quantities. Furthermore,
+we only need to know \(A_z\), so we just need to construct any continuous and
+infinitely differentiable \(A_z\) that is a valid solution to
+the following set of partial differential equations.
+\[ B_x = \frac{\partial A_z}{\partial y} \]
+\[ B_y = -\frac{\partial A_z}{\partial x} \]
+One choice of \(A_z\) that satisfies the above equations is the following:
+\[ A_z(x,y) = - \int_0^{x}{B_y(x’,0)\ dx’}  + \int_0^{y}{B_x(x,y’)\ dy’}.\]</p>
+
+<p>Hopefully you can
+<a href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_calculus">convince yourself</a>
+that \(\frac{\partial A_z}{\partial y} = B_x \), So we’ll just show the algebra for
+\[B_y = -\frac{\partial A_z}{\partial x} = B_y(x,0) - \int_0^y{ \frac{\partial B_x}{\partial x}\ dy’}. \]</p>
+
+<p>Because \(\nabla \cdot B = 0\) and fields are 2D;
+\(\frac{\partial B_x}{\partial x} = -\frac{\partial B_y}{\partial y}.\)
+Substituting this in…
+\[-\frac{\partial A_z}{\partial x} = B_y(x,0) + \int_0^y{ \frac{\partial B_y}{\partial y}\ dy’} = B_y(x,0)  + B_y(x, y) - B_y(x,0) \]
+or
+\[B_y = -\frac{\partial A_z}{\partial x}.\]</p>
+
+<p>Which is precisely what we needed to show, so we have proven our choice of
+\(A_z\) is valid. However, you explicitly use the fact the field is
+solenoidal to calculate the field lines, so this trick will not work for
+electric fields. You’ll need to do the full Helmholtz decomposition or trace
+them out as streamlines for that.</p>
+
+<p>Let’s say you have two 2D numpy arrays, <code class="language-plaintext highlighter-rouge">bx</code> and <code class="language-plaintext highlighter-rouge">by</code>, corresponding
+to the \(x\) and \(y\) components of the field respectively. With some
+Numpy magic and disregarding units, \(A_z\) can be calculated and field lines
+plotted with:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+  <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+  <span class="n">bydx</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">by</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
+  <span class="n">bxdy</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">bx</span><span class="p">[:,</span> <span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+  <span class="n">Az</span> <span class="o">=</span> <span class="n">bydx</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">bxdy</span>
+  <span class="n">plt</span><span class="p">.</span><span class="n">contour</span><span class="p">(</span><span class="n">Az</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Isn’t it beautiful to program with multidimensional arrays? Thank you
+<a href="https://en.wikipedia.org/wiki/APL_(programming_language)">Kenneth E. Iverson</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#dataviz" class="page__taxonomy-item" rel="tag">DataViz</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#tips-tricks" class="page__taxonomy-item" rel="tag">Tips & Tricks</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#blog" class="page__taxonomy-item" rel="tag">Blog</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-08-23T00:00:00-04:00">August 23, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Plotting+Magnetic+Field+Lines+in+2D%3F+Here%27s+what+you+need+to+know.%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fmagnetic-field-lines%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fmagnetic-field-lines%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fmagnetic-field-lines%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/hello-there/" class="pagination--pager" title="Hello, there!
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/hello-there/" rel="permalink">Hello, there!
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+
+    
+
+    
+      
+      
+
+      <i class="far fa-clock" aria-hidden="true"></i>
+      
+        1 minute read
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">Hi. I’m Patrick. Right now I work as a computational
+astrophysicist, but I
+am also in the middle of a career transition. I am starting a blog to find ways
+to...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/pkcrumley" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> pkcrumley</a></li>
+        
+      
+        
+          <li><a href="https://github.com/pcrumley" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> pcrumley</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Voorwerpjes. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

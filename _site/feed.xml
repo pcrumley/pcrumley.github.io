@@ -1,4 +1,89 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-21T21:43:58-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Voorwerpjes</title><subtitle>Personal website of Patrick Crumley</subtitle><author><name>Patrick Crumley</name></author><entry><title type="html">Hello There.</title><link href="http://localhost:4000/blog/hello-there/" rel="alternate" type="text/html" title="Hello There." /><published>2020-08-21T00:00:00-04:00</published><updated>2020-08-21T00:00:00-04:00</updated><id>http://localhost:4000/blog/hello-there</id><content type="html" xml:base="http://localhost:4000/blog/hello-there/">&lt;p&gt;Hi. I’m Patrick. Right now I work as a &lt;a href=&quot;https://web.astro.princeton.edu/people/patrick-crumley&quot;&gt;computational
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-23T22:06:16-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Voorwerpjes</title><subtitle>Personal website of Patrick Crumley</subtitle><author><name>Patrick Crumley</name></author><entry><title type="html">Plotting Magnetic Field Lines in 2D? Here’s what you need to know.</title><link href="http://localhost:4000/blog/magnetic-field-lines/" rel="alternate" type="text/html" title="Plotting Magnetic Field Lines in 2D? Here's what you need to know." /><published>2020-08-23T00:00:00-04:00</published><updated>2020-08-23T00:00:00-04:00</updated><id>http://localhost:4000/blog/magnetic-field-lines</id><content type="html" xml:base="http://localhost:4000/blog/magnetic-field-lines/">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css&quot; integrity=&quot;sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j&quot; crossorigin=&quot;anonymous&quot; /&gt;
+
+&lt;script defer=&quot;&quot; src=&quot;https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js&quot; integrity=&quot;sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+
+&lt;script defer=&quot;&quot; src=&quot;https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js&quot; integrity=&quot;sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI&quot; crossorigin=&quot;anonymous&quot; onload=&quot;renderMathInElement(document.body);&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;One of the major difficulties of understanding plasmas is just getting a handle
+what the magnetic field is doing. If you’re lucky enough to be running
+simulations in 2D, you’ll have the value of the magnetic field at every point on
+your grid, but it still can be hard to understand the geometry of it all.
+That’s where &lt;a href=&quot;https://en.wikipedia.org/wiki/Magnetic_field&quot;&gt;field lines&lt;/a&gt; come
+in.&lt;/p&gt;
+
+&lt;p&gt;There’s this trick that is passed around by word of mouth amongst theoretical
+plasma physicists, but I can’t find it online or in print anywhere. Hopefully
+the solid use of SEO in my blog title will help it become more widely known
+(Don’t @ me, &lt;a href=&quot;https://www.nytimes.com/column/the-daily&quot;&gt;Michael Barbaro&lt;/a&gt;).
+The trick makes calculating field lines in 2D very fast, but as you’ll
+see, it only works for magnetic or other divergence-free 2D vector fields.&lt;/p&gt;
+
+&lt;p&gt;In 2D, the field lines in the \(xy\) plane can be calculated as lines of
+equipotential of \(A_z\). The trick is: &lt;strong&gt;you can calculate \(A_z\) at any
+point in the grid by integrating \(-B_y\) along \(x\), and \(B_x\) along
+\(y\).&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want to just &lt;a href=&quot;https://en.wikipedia.org/wiki/Argument_from_authority&quot;&gt;believe me&lt;/a&gt;
+and skip the vector calculus, scroll to the  bottom for a simple python snippet
+showing how to do use this trick efficiently. Otherwise, let’s take a little
+detour to prove we’ve made a valid construction of \(A_z\).&lt;/p&gt;
+
+&lt;h3 id=&quot;simple-calculation-of-the-of-the-magnetic-vector-potential-a_z&quot;&gt;Simple calculation of the of the magnetic vector potential, \(A_z\).&lt;/h3&gt;
+
+&lt;p&gt;Recall Maxwell’s EQ’s.
+\[ \mathbf{E} = \nabla V - \frac{\partial \mathbf{A}}{\partial t} \]
+\[ \mathbf{B} = \nabla \times \mathbf{A} \]&lt;/p&gt;
+
+&lt;p&gt;We are free to choose any \(A\) that satisfies the above equation, due to gauge
+freedom. Calculate curl of \(A\)
+\[ \nabla \times \mathbf{A} =
+  \hat{i}\left[\frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}\right]
+  -\hat{j}\left[\frac{\partial A_z}{\partial x} - \frac{\partial A_x}{\partial z}\right]
+  +\hat{k}\left[\frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y}\right]
+\]
+Now because the simulation is \(2D\), we know that
+\( \frac{\partial}{\partial z} \) is zero for all quantities. Furthermore,
+we only need to know \(A_z\), so we just need to construct any continuous and
+infinitely differentiable \(A_z\) that is a valid solution to
+the following set of partial differential equations.
+\[ B_x = \frac{\partial A_z}{\partial y} \]
+\[ B_y = -\frac{\partial A_z}{\partial x} \]
+One choice of \(A_z\) that satisfies the above equations is the following:
+\[ A_z(x,y) = - \int_0^{x}{B_y(x’,0)\ dx’}  + \int_0^{y}{B_x(x,y’)\ dy’}.\]&lt;/p&gt;
+
+&lt;p&gt;Hopefully you can
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Fundamental_theorem_of_calculus&quot;&gt;convince yourself&lt;/a&gt;
+that \(\frac{\partial A_z}{\partial y} = B_x \), So we’ll just show the algebra for
+\[B_y = -\frac{\partial A_z}{\partial x} = B_y(x,0) - \int_0^y{ \frac{\partial B_x}{\partial x}\ dy’}. \]&lt;/p&gt;
+
+&lt;p&gt;Because \(\nabla \cdot B = 0\) and fields are 2D;
+\(\frac{\partial B_x}{\partial x} = -\frac{\partial B_y}{\partial y}.\)
+Substituting this in…
+\[-\frac{\partial A_z}{\partial x} = B_y(x,0) + \int_0^y{ \frac{\partial B_y}{\partial y}\ dy’} = B_y(x,0)  + B_y(x, y) - B_y(x,0) \]
+or
+\[B_y = -\frac{\partial A_z}{\partial x}.\]&lt;/p&gt;
+
+&lt;p&gt;Which is precisely what we needed to show, so we have proven our choice of
+\(A_z\) is valid. However, you explicitly use the fact the field is
+solenoidal to calculate the field lines, so this trick will not work for
+electric fields. You’ll need to do the full Helmholtz decomposition or trace
+them out as streamlines for that.&lt;/p&gt;
+
+&lt;p&gt;Let’s say you have two 2D numpy arrays, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bx&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;by&lt;/code&gt;, corresponding
+to the \(x\) and \(y\) components of the field respectively. With some
+Numpy magic and disregarding units, \(A_z\) can be calculated and field lines
+plotted with:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+  &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;bydx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cumsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:])&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;bxdy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cumsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Az&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bydx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newaxis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bxdy&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;contour&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Az&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Isn’t it beautiful to program with multidimensional arrays? Thank you
+&lt;a href=&quot;https://en.wikipedia.org/wiki/APL_(programming_language)&quot;&gt;Kenneth E. Iverson&lt;/a&gt;&lt;/p&gt;</content><author><name>Patrick Crumley</name></author><category term="DataViz" /><category term="Tips &amp; Tricks" /><summary type="html"></summary></entry><entry><title type="html">Hello, there!</title><link href="http://localhost:4000/blog/hello-there/" rel="alternate" type="text/html" title="Hello, there!" /><published>2020-08-21T00:00:00-04:00</published><updated>2020-08-21T00:00:00-04:00</updated><id>http://localhost:4000/blog/hello-there</id><content type="html" xml:base="http://localhost:4000/blog/hello-there/">&lt;p&gt;Hi. I’m Patrick. Right now I work as a &lt;a href=&quot;https://web.astro.princeton.edu/people/patrick-crumley&quot;&gt;computational
 astrophysicist&lt;/a&gt;, but I
 am also in the middle of a career transition. I am starting a blog to find ways
 to connect in this new normal, write down my thoughts, and document things about
@@ -24,17 +109,4 @@ experts and non-experts.&lt;/p&gt;
 &lt;p&gt;I hope to fill up this space with little things.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/hannys_voorwerp.jpg&quot; alt=&quot;Hanny's Voorwerp, credit to NASA&quot; /&gt;
-Credit: NASA and the Galaxy Zoo Team&lt;/p&gt;</content><author><name>Patrick Crumley</name></author><category term="Personal" /><category term="Voorwerpjes" /><summary type="html">Hi. I’m Patrick. Right now I work as a computational astrophysicist, but I am also in the middle of a career transition. I am starting a blog to find ways to connect in this new normal, write down my thoughts, and document things about my work in and outside of academia that I’m proud of or think might help others.</summary></entry><entry><title type="html">Handy Resources for learning &amp;amp; doing ML</title><link href="http://localhost:4000/blog/stats-ml-resources/" rel="alternate" type="text/html" title="Handy Resources for learning &amp; doing ML" /><published>2020-08-21T00:00:00-04:00</published><updated>2020-08-21T00:00:00-04:00</updated><id>http://localhost:4000/blog/stats-ml-resources</id><content type="html" xml:base="http://localhost:4000/blog/stats-ml-resources/">&lt;p&gt;I attended the 2020 Spring session of Insight Data Science NYC, a 7 week long,
-postdoctoral professional development fellowship from January through March.
-I had a lot of fun doing it, but it was also surreal to watch the world shift
-under our feet in early March during the outbreak of COVID-19.&lt;/p&gt;
-
-&lt;p&gt;There is this theory in cosmology that the quantum field that permeates our
-universe is only metastable. There exists a lower energy stable point than the
-one we currently occupy. At some point, a place in the universe might
-spontaneously tunnel from the “false vacuum” state into the “true vacuum.” The
-part of the universe in the true vacuum state would then expand at the speed of
-light, destroying everything it touched. It’s one of the ways our &lt;a href=&quot;https://cosmosmagazine.com/physics/vacuum-decay-ultimate-catastrophe/&quot;&gt;universe may
-end&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;In March, it was&lt;/p&gt;</content><author><name>Patrick Crumley</name></author><category term="Insight Data Science" /><category term="NYC" /><summary type="html">I attended the 2020 Spring session of Insight Data Science NYC, a 7 week long, postdoctoral professional development fellowship from January through March. I had a lot of fun doing it, but it was also surreal to watch the world shift under our feet in early March during the outbreak of COVID-19.</summary></entry></feed>
+Credit: NASA and the Galaxy Zoo Team&lt;/p&gt;</content><author><name>Patrick Crumley</name></author><category term="Personal" /><category term="Voorwerpjes" /><summary type="html">Hi. I’m Patrick. Right now I work as a computational astrophysicist, but I am also in the middle of a career transition. I am starting a blog to find ways to connect in this new normal, write down my thoughts, and document things about my work in and outside of academia that I’m proud of or think might help others.</summary></entry></feed>

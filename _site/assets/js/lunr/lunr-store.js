@@ -1,13 +1,13 @@
 var store = [{
-        "title": "Hello There.",
+        "title": "Hello, there!",
         "excerpt":"Hi. I’m Patrick. Right now I work as a computational astrophysicist, but I am also in the middle of a career transition. I am starting a blog to find ways to connect in this new normal, write down my thoughts, and document things about my work in and outside of...","categories": ["Blog"],
         "tags": ["Personal","Voorwerpjes"],
         "url": "http://localhost:4000/blog/hello-there/",
         "teaser": null
       },{
-        "title": "Handy Resources for learning & doing ML",
-        "excerpt":"I attended the 2020 Spring session of Insight Data Science NYC, a 7 week long, postdoctoral professional development fellowship from January through March. I had a lot of fun doing it, but it was also surreal to watch the world shift under our feet in early March during the outbreak...","categories": ["Blog"],
-        "tags": ["Insight Data Science","NYC"],
-        "url": "http://localhost:4000/blog/stats-ml-resources/",
+        "title": "Plotting Magnetic Field Lines in 2D? Here's what you need to know.",
+        "excerpt":"One of the major difficulties of understanding plasmas is just getting a handle what the magnetic field is doing. If you’re lucky enough to be running simulations in 2D, you’ll have the value of the magnetic field at every point on your grid, but it still can be hard to...","categories": ["Blog"],
+        "tags": ["DataViz","Tips & Tricks"],
+        "url": "http://localhost:4000/blog/magnetic-field-lines/",
         "teaser": null
       }]
