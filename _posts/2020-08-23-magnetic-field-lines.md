@@ -92,5 +92,5 @@ plotted with:
   plt.contour(Az)
 ```
 
-Isn't it beautiful to program with multidimensional arrays? Thank you
+Isn't it beautiful to program with multidimensional arrays? Thank you,
 [Kenneth E. Iverson](https://en.wikipedia.org/wiki/APL_(programming_language))
