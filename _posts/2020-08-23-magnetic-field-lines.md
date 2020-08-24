@@ -33,7 +33,7 @@ point in the grid by integrating \\(-B_y\\) along \\(x\\), and \\(B_x\\) along
 
 If you want to just [believe me](https://en.wikipedia.org/wiki/Argument_from_authority)
 and skip the vector calculus, scroll to the  bottom for a simple python snippet
-showing how to do use this trick efficiently. Otherwise, let's take a little
+showing how to use this trick efficiently. Otherwise, let's take a little
 detour to prove we've made a valid construction of \\(A_z\\).
 
 
