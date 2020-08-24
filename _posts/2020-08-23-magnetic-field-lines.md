@@ -12,7 +12,7 @@ tags:
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
 
 
-One of the major difficulties of understanding plasmas is just getting a handle
+One of the major difficulties of understanding plasmas is just getting a handle on
 what the magnetic field is doing. If you're lucky enough to be running
 simulations in 2D, you'll have the value of the magnetic field at every point on
 your grid, but it still can be hard to understand the geometry of it all.
